@@ -179,7 +179,9 @@ function calculateSumDebitAmt( responseData ) {
  */
 function calculateLowestBalance( responseData ) {
     let lowestBalance = 0
-    responseData.foreach(item => {
+    for (let index=0; index<responseData.length; index++) {
+        let item = responseData[index]
+        
         if(item == undefined || item == null) {
             return 'Invalid Input'
         } else {
@@ -203,7 +205,7 @@ function calculateLowestBalance( responseData ) {
                 break
             }
         }
-    })
+    }
     responseData.foreach(item => {
         if(item == undefined || item == null) {
             return 'Invalid Input'
