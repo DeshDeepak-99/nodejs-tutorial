@@ -250,8 +250,8 @@ const responseData =
 // 4. performOperationOnCustomer(undefined, 'lowestBalance', responseData) 
 // 5. performOperationOnCustomer(undefined, 'totalTransactions', responseData) 
 // 6. performOperationOnCustomer(undefined, 'sumAllCreditAmt', responseData) 
-// 7. performOperationOnCustomer(undefined, 'sumAllDebitAmt', responseData) 
-console.log(performOperationOnCustomer (100, 'userDetail', responseData))
+console.log(performOperationOnCustomer(undefined, 'sumAllDebitAmt', responseData))
+//console.log(performOperationOnCustomer (100, 'userDetail', responseData))
 
 /**
  * Method to perform operation on customer data
@@ -399,7 +399,7 @@ function calculateSumDebitAmt(responseData) {
         if (item == undefined || item == null) {
             return 'Invalid Input'
         } else {
-            if (item["id"] != undefined && item["id"] != null && userId == item["id"]) {
+            if (item["id"] != undefined && item["id"] != null) {
                 let creditAmount = 0
                 let debitAmount = 0
                 if (item["debitAmount"] != undefined && item["debitAmount"] != null && !isNaN(item["debitAmount"])) {
