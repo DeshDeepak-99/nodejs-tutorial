@@ -244,14 +244,14 @@ const responseData =
 
 
 
-console.log(performOperationOnCustomer(8, 'totalBalance', responseData))// should returns a number: 1000 
+//console.log(performOperationOnCustomer(8, 'totalBalance', responseData))// should returns a number: 1000 
 // 2. performOperationOnCustomer(undefined, 'allUserTotalBalance', responseData) return [{id:1, totalBalance: 2323},{id:1, totalBalance: 2323}] 
 // 3. performOperationOnCustomer(undefined, 'highestBalance', responseData) 
 // 4. performOperationOnCustomer(undefined, 'lowestBalance', responseData) 
 // 5. performOperationOnCustomer(undefined, 'totalTransactions', responseData) 
 // 6. performOperationOnCustomer(undefined, 'sumAllCreditAmt', responseData) 
 // 7. performOperationOnCustomer(undefined, 'sumAllDebitAmt', responseData) 
-// 8. print user details by id (2, 'userDetail', responseData)
+console.log(performOperationOnCustomer (100, 'userDetail', responseData))
 
 /**
  * Method to perform operation on customer data
@@ -326,17 +326,12 @@ function validateInputs(userId, keyName, responseData) {
  * @param {*} responseData 
  */
 function getUserDetails(userId, responseData) {
-    responseData.forEach(item => {
-        if (item == undefined) {
-            return 'Invalid Input'
-        } else {
-            if (item["id"] != undefined && item["id"] != null && userId == item["id"]) {
-                return item
-            }
-        }
-    })
 
-    return 'No data found for user Id'
+    var userData = responseData.filter(a => a.id == userId);
+    if(userData.length > 0)
+    return userData;
+    else
+    return 'User does not exists'
 }
 
 /**
