@@ -337,5 +337,3 @@ function calculateTotalBalance(userId, responseData) {
 
     return total
 }
-
-
